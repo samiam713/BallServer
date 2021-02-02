@@ -228,7 +228,7 @@ func (g *Game) updateGameStateAndPublish(dt float64) bool {
 	}
 
 	// write current position to client and host
-	gameStateJSON, err := json.Marshal(smGameStateJSON{Host: g.hostBall.pos, Client: g.hostBall.pos, Radius: g.boundaryRadius})
+	gameStateJSON, err := json.Marshal(smGameStateJSON{Host: g.hostBall.pos, Client: g.clientBall.pos, Radius: g.boundaryRadius})
 	if err != nil {
 		panic("COULDN'T ENCODE JSON")
 	}
