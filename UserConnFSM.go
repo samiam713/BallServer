@@ -162,6 +162,7 @@ func postGameHandler(userConnFSM *UserConnFSM, message []byte) {
 			userConnFSM.game.clientConn.state = usCountDown
 			userConnFSM.game.hostConn.state = usCountDown
 			(*userConnFSM.opponent().clientConn).Write(smCountDownStart)
+			(*userConnFSM.clientConn).Write(smCountDownStart)
 
 			go userConnFSM.game.startGameLoop()
 		} else {
