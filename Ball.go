@@ -18,6 +18,7 @@ func (ball *Ball) advanceBall(dt float64) {
 	ball.accAccum.X = 0
 	ball.accAccum.Y = 0
 	ball.pos.adding(ball.vel.scaledBy(dt))
+
 }
 
 func areColliding(b1, b2 *Ball) bool {

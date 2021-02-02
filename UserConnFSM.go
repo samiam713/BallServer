@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"net"
 )
 
@@ -140,6 +141,7 @@ func inGameHandler(userConnFSM *UserConnFSM, message []byte) {
 		if err != nil {
 			panic("FATAL inGameHandler ERROR")
 		}
+		fmt.Println("received accel")
 		if userConnFSM.isHost() {
 			userConnFSM.game.hostBall.accAccum.adding(accelerationVector)
 		} else {
