@@ -41,6 +41,6 @@ func collideIfNecessary(b1, b2 *Ball) {
 		// make them barely kiss
 		average := add(b1.pos, b2.pos).scaledBy(0.5)
 		b1.pos = add(average, b2Tob1.unit().scaledBy(1.01*ballRadius))
-		b1.pos = add(average, b1Tob2.unit().scaledBy(1.01*ballRadius))
+		b2.pos = add(average, b1Tob2.unit().scaledBy(1.01*ballRadius))
 	}
 }
