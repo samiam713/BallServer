@@ -149,7 +149,7 @@ func (g *Game) startGameLoop() {
 		}
 
 		// InGame || PregameCountdown
-		dt := float64(time.UnixNano() - g.currentNanosecond)
+		dt := float64(time.UnixNano()-g.currentNanosecond) / 1000000000
 		g.currentNanosecond = time.UnixNano()
 
 		// check if we're still in pregame
