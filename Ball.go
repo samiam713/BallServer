@@ -15,6 +15,8 @@ var clientBall = Ball{pos: Vector{0, -ballInitialY}, vel: Vector{0, 0}}
 
 func (ball *Ball) advanceBall(dt float64) {
 	ball.vel.adding(ball.accAccum)
+	// (0.995)^60 is approximately 0.75
+	ball.vel.scale(0.995)
 	ball.accAccum.X = 0
 	ball.accAccum.Y = 0
 	ball.pos.adding(ball.vel.scaledBy(dt))
