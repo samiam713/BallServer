@@ -47,7 +47,9 @@ func handleConnection(c *net.Conn) {
 
 	for scanner.Scan() {
 		userConnection.lockGame()
-		clientConnHandlers[userConnection.state](&userConnection, scanner.Bytes())
+		if len(scanner.Bytes()) != 0 {
+			(clientConnHandlers[userConnection.state])(&userConnection, scanner.Bytes())
+		}
 		userConnection.unlockGame()
 	}
 
